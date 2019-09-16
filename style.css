@@ -1,0 +1,36 @@
+.main{
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    position: fixed;
+    background-color: black;
+    font-family: 'Frijole', cursive;
+    color:white;
+}
+
+.title{
+    font-size: 50px;
+    text-align: center;
+    margin-top: 10px;
+
+}
+canvas{
+    border: 2px solid white;
+    margin: auto;
+    display: block;
+    background: white;
+    border-radius: 20px;
+    margin-top: 2%;
+}
+footer{
+    bottom: 0;
+    position: fixed;
+    color: white;
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    margin-bottom: 5px;
+    text-align: center;
+}
