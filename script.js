@@ -22,13 +22,12 @@
     });
 
     let particleOptions = {
-        friction: 0.05,
-        frictionStatic: 0.1,
+        friction: 1,
+        frictionStatic: 1,
+        frictionAir: 2,
+        // density: 1,
         render: {
             visible: true,
-            sprite: {
-                texture: './images/box.png',
-            }
         },
         isStatic: false
     };
@@ -41,10 +40,12 @@
         });
     };
 
+    let softbody = Composites.softBody(250, 100, 5, 5, 0, 0, true, 12, particleOptions);
+    console.log(softbody);
+
     World.add(engine.world, [
-        Composites.softBody(250, 100, 5, 5, 0, 0, true, 18, particleOptions),
+        Composites.softBody(250, 100, 1, 5, 0, 0, true, 12, particleOptions),
         Composites.softBody(400, 300, 8, 3, 0, 0, true, 15, particleOptions),
-        Composites.softBody(250, 400, 4, 4, 0, 0, true, 15, particleOptions),
 
         wall(canvas.width / 2, 0, canvas.width, 1), //top
         wall(canvas.width / 2, canvas.height, canvas.width, 1), //bottom
@@ -57,7 +58,7 @@
         mouseConstraint = MouseConstraint.create(engine, {
             mouse: mouse,
             constraint: {
-                stiffness: 0.9,
+                stiffness: 0.3,
                 render: {
                     visible: false
                 }
