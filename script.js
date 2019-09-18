@@ -1,6 +1,4 @@
 (function () {
-    console.log("HELLO", Matter);
-
     let canvas = document.getElementById("canvas");
 
     let Engine = Matter.Engine,
@@ -48,14 +46,10 @@
         Composites.softBody(400, 300, 8, 3, 0, 0, true, 15, particleOptions),
         Composites.softBody(250, 400, 4, 4, 0, 0, true, 15, particleOptions),
 
-        Bodies.circle(200, 100, 30, {
-            isStatic: false,
-            restitution: 0.7,
-        }),
-        wall(390, 10, 800, 20),
-        wall(390, 470, 800, 20),
-        wall(790, 300, 20, 600),
-        wall(10, 290, 20, 600)
+        wall(canvas.width / 2, 0, canvas.width, 1), //top
+        wall(canvas.width / 2, canvas.height, canvas.width, 1), //bottom
+        wall(canvas.width, canvas.height / 2, 1, canvas.height), //right
+        wall(0, canvas.height / 2, 1, canvas.height) //left
     ]);
 
     // add mouse control
